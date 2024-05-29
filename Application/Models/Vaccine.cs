@@ -1,8 +1,6 @@
-﻿using VaccinationCard.Api.Application.Models;
-
-namespace VaccinationCard.Api.Mediatr.Models
+﻿namespace VaccinationCard.Api.Application.Models
 {
-    public class User
+    public class Vaccine
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

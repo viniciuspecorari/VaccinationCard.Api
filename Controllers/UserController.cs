@@ -1,9 +1,6 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VaccinationCard.Api.Application.Commands;
-using VaccinationCard.Api.Contracts;
-using VaccinationCard.Api.Mediatr.Dtos;
 
 namespace VaccinationCard.Api.Controllers
 {
@@ -12,11 +9,9 @@ namespace VaccinationCard.Api.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IUserRepository _userRepository;
 
-        public UserController(IMediator mediator, IUserRepository userRepository)
+        public UserController(IMediator mediator)
         {
-            _userRepository = userRepository;
             _mediator = mediator;
         }
 

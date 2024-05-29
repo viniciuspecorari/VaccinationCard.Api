@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VaccinationCard.Api.Data;
 
@@ -11,9 +12,11 @@ using VaccinationCard.Api.Data;
 namespace VaccinationCard.Api.Migrations
 {
     [DbContext(typeof(VcDbContext))]
-    partial class VcDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240529113749_CreateModels")]
+    partial class CreateModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

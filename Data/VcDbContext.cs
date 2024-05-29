@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using VaccinationCard.Api.Application.Models;
 using VaccinationCard.Api.Mediatr.Models;
 
 namespace VaccinationCard.Api.Data
@@ -10,6 +11,9 @@ namespace VaccinationCard.Api.Data
             
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Vaccine> Vaccines { get; set; }
+        public DbSet<Dose> Doses { get; set; }
+        public DbSet<Vaccination> Vaccinations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

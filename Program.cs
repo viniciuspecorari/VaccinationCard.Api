@@ -1,7 +1,9 @@
+using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using VaccinationCard.Api.Contracts;
 using VaccinationCard.Api.Data;
+using VaccinationCard.Api.Middleware;
 using VaccinationCard.Api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +18,7 @@ builder.Services.AddDbContext<VcDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VaccinationCardDB"));
 });
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-//builder.Services.AddMediatR(typeof(Startup));
+builder.Services.AddMediatR(typeof(Program));
 
 var app = builder.Build();
 
@@ -28,5 +30,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ErrorHandlingMiddleware>();
 app.MapControllers();
 app.Run();

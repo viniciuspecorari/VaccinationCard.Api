@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
-using VaccinationCard.Api.Contracts;
+﻿using VaccinationCard.Api.Contracts;
 using VaccinationCard.Api.Data;
-using VaccinationCard.Api.Mediatr.Dtos;
 using VaccinationCard.Api.Mediatr.Models;
 
 namespace VaccinationCard.Api.Repositories
@@ -16,15 +13,17 @@ namespace VaccinationCard.Api.Repositories
             _context = context;
         }
 
-        public async Task<bool> Add(UserNotifications user)
+        public async Task<User> Add(User user)
         {
             var newUser = new User
             {
                 Name = user.Name
             };
 
-            await _context.Users.AddAsync(newUser);            
-            return await _context.SaveChangesAsync() > 0;            
+            await _context.Users.AddAsync(newUser);
+            await _context.SaveChangesAsync();
+
+            return newUser;
         } 
 
         public async Task<bool> Delete(Guid id)
