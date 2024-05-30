@@ -9,7 +9,7 @@ namespace VaccinationCard.Api.Application.Models
         public User Users { get; set; }
         public Guid VaccineId { get; set; }
         public Vaccine Vaccine { get; set; }
-        public Guid DoseId { get; set; }
+        public int DoseId { get; set; }
         public Dose Dose { get; set; }
         public DateTime CreatedAt { get; set; }        
     }

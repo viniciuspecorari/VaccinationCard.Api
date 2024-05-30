@@ -12,8 +12,8 @@ using VaccinationCard.Api.Data;
 namespace VaccinationCard.Api.Migrations
 {
     [DbContext(typeof(VcDbContext))]
-    [Migration("20240529113749_CreateModels")]
-    partial class CreateModels
+    [Migration("20240529124820_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,12 +27,15 @@ namespace VaccinationCard.Api.Migrations
 
             modelBuilder.Entity("VaccinationCard.Api.Application.Models.Dose", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("DoseType")
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DoseType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -48,8 +51,8 @@ namespace VaccinationCard.Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DoseId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DoseId")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");

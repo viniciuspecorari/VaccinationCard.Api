@@ -3,6 +3,8 @@ using System.Net;
 using System.Text.Json;
 using VaccinationCard.Api.Application.Notifications;
 using System;
+using System.Diagnostics;
+using Microsoft.Extensions.Options;
 
 namespace VaccinationCard.Api.Middleware
 {
@@ -28,22 +30,29 @@ namespace VaccinationCard.Api.Middleware
                 _logger.LogError(ex, ex.Message);
                 httpContext.Response.ContentType = "application/json";
 
-                // Verificar o tipo da exceção para retornar uma mensagem apropriada
-                if (ex is ApplicationException appEx)
+                // Verificar o tipo da exceção 
+                if (ex is ErrorNotification errorNotification)
                 {
-                    httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    var response = new { message = appEx.Message };
-                    await httpContext.Response.WriteAsJsonAsync(response);
+                    httpContext.Response.StatusCode = errorNotification.StatusCode;
+                    var response = new
+                    {
+                        statusCode = errorNotification.StatusCode,
+                        errorMessage = errorNotification.ErrorMessage,
+                        details = errorNotification.Details
+                    };
+                    
+                    var json = JsonSerializer.Serialize(response);
+                    await httpContext.Response.WriteAsync(json);
                 }
                 else
                 {
                     httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     var response = new ErrorNotification
-                    {
-                        StatusCode = httpContext.Response.StatusCode.ToString(),
-                        Message = "An unexpected error occurred. Please try again later.",
-                        Details = ex.StackTrace.ToString()
-                    };
+                    (
+                        httpContext.Response.StatusCode,
+                        "An unexpected error occurred. Please try again later.",
+                        ex.StackTrace.ToString()
+                    );
 
                     var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
                     var json = JsonSerializer.Serialize(response, options);

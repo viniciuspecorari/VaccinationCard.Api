@@ -8,7 +8,7 @@ using VaccinationCard.Api.Mediatr.Models;
 
 namespace VaccinationCard.Api.Application.Handlers
 {
-    public class AddUserCommandHandler : IRequestHandler<AddUserCommand, UserNotifications>
+    public class AddUserCommandHandler : IRequestHandler<AddUserCommand, AddUserNotifications>
     {
         private readonly IMediator _mediator;
         private readonly IUserRepository _userRepository;
@@ -19,7 +19,7 @@ namespace VaccinationCard.Api.Application.Handlers
             _userRepository = userRepository;
         }
 
-        public async Task<UserNotifications> Handle(AddUserCommand request, CancellationToken cancellationToken)
+        public async Task<AddUserNotifications> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
             var user = new User
             {
@@ -29,21 +29,14 @@ namespace VaccinationCard.Api.Application.Handlers
             try
             {
                 var userAdd = await _userRepository.Add(user);
-                await _mediator.Publish(new UserNotifications(request.Name));
+                await _mediator.Publish(new AddUserNotifications(userAdd.Id, request.Name));
                 return await Task.FromResult(userAdd);
             }
             catch(Exception ex)
-            {
-                await _mediator.Publish(new UserNotifications(request.Name));
-                await _mediator.Publish(new ErrorNotification
-                {
-                    StatusCode = StatusCodes.Status501NotImplemented.ToString(),
-                    Message = "The user could not be registered",
-                    Details = ex.StackTrace.ToString()
-                });
-
-                throw new ApplicationException("The user could not be registered", ex);                
+            {                
+                throw new ErrorNotification(StatusCodes.Status500InternalServerError, "The user could not be registered", ex.Message);                
             }
+
         }
     }
 }

@@ -13,12 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddDbContext<VcDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("VaccinationCardDB"));
 });
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddMediatR(typeof(Program));
 
 var app = builder.Build();
 
