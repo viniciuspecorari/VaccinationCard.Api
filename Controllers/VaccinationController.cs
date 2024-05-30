@@ -1,14 +1,12 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 using VaccinationCard.Api.Application.Commands;
-using VaccinationCard.Api.Application.Notifications;
 using VaccinationCard.Api.Application.Queries;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace VaccinationCard.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class VaccinationController : ControllerBase
@@ -35,8 +33,9 @@ namespace VaccinationCard.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetVaccinationsByUserId([FromQuery] GetVaccinationsQuery query)
+        public async Task<IActionResult> GetVaccinationsByUserId(Guid userId)
         {
+            var query = new GetVaccinationsQuery(userId);
             var response = await _mediator.Send(query);
             return Ok(response);
         }

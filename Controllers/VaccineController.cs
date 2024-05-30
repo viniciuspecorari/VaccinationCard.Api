@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VaccinationCard.Api.Application.Commands;
 using VaccinationCard.Api.Application.Notifications;
@@ -6,6 +7,7 @@ using VaccinationCard.Api.Application.Queries;
 
 namespace VaccinationCard.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class VaccineController : ControllerBase
@@ -26,7 +28,7 @@ namespace VaccinationCard.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<VaccineNotification>> Add(AddVaccineCommand command)
+        public async Task<IActionResult> Add(AddVaccineCommand command)
         {
             var newVaccine = await _mediator.Send(command);
             return Ok(newVaccine);

@@ -1,9 +1,14 @@
 ﻿using MediatR;
+using VaccinationCard.Api.Application.Models;
 
 namespace VaccinationCard.Api.Application.Queries
 {
-    public class GetVaccinationsQuery : IRequest<string>
+    public record GetVaccinationsQuery(Guid UserId): IRequest<string>
     {
-        public Guid UserId { get; set; }
-    }
+        public static implicit operator GetVaccinationsQuery(Vaccination entity)
+        {
+            return new GetVaccinationsQuery(entity.UserId);
+        }
+
+    }    
 }
