@@ -6,7 +6,15 @@ Na imagem abaixo temos as models utilizadas no projeto:
 ![Modelagem](https://drive.google.com/drive/folders/19j-wQNVeT6I5rWvHadyimeqYbGyOmWWb?usp=sharing)
 
 ### Suas relações são:
-* Um usuário possui N vacinações e uma vacinação é feita em um usuário
+* Um usuário possui uma ou mais vacinações
+* Uma vacinação é feita em um usuário
 * Uma vacinação é composta por uma dose de uma vacina
-* Uma vacina pode ser aplicada em N vacinações
-* Uma dose pode ser aplicada em N vacinações
+* Uma vacina pode ser aplicada em várias vacinações
+* Uma dose pode ser aplicada em várias vacinações
+
+## Setup
+## Estrutura do Projeto
+## Rotas
+## Validações e Regras de Negócio
+## Autenticação
+## Decisões Arquiteturais
