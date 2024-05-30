@@ -7,7 +7,7 @@ Na imagem abaixo temos as models utilizadas no projeto:
 
 ### Suas relações são:
 * Um usuário possui uma ou mais vacinações
-* Uma vacinação é feita em um usuário
+* Uma vacinação é aplicada em um usuário
 * Uma vacinação é composta por uma dose de uma vacina
 * Uma vacina pode ser aplicada em várias vacinações
 * Uma dose pode ser aplicada em várias vacinações
