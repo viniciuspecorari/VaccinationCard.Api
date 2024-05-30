@@ -12,9 +12,9 @@ Na imagem abaixo temos as models utilizadas no projeto:
 * Uma vacina pode ser aplicada em várias vacinações
 * Uma dose pode ser aplicada em várias vacinações
 
+## Validações e Regras de Negócio
 ## Setup
 ## Estrutura do Projeto
 ## Rotas
-## Validações e Regras de Negócio
 ## Autenticação
 ## Decisões Arquiteturais
