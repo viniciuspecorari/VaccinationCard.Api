@@ -3,7 +3,7 @@ O objetivo deste sistema é permitir o gerenciamento das vacinações de um usu�
 
 ## Escopo
 Na imagem abaixo temos as models utilizadas no projeto:
-![Modelagem](https://drive.google.com/drive/folders/19j-wQNVeT6I5rWvHadyimeqYbGyOmWWb?usp=sharing)
+![Modelagem](https://github.com/viniciuspecorari/Assets/blob/main/vaccination-card-uml.jpg)
 
 ### Suas relações são:
 * Um usuário possui uma ou mais vacinações
