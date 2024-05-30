@@ -3,9 +3,9 @@ using VaccinationCard.Api.Mediatr.Dtos;
 
 namespace VaccinationCard.Api.Application.EventHandlers
 {
-    public class LogEventHandler : INotificationHandler<AddUserNotifications>
+    public class LogEventHandler : INotificationHandler<UserNotifications>
     {
-        public Task Handle(AddUserNotifications notification, CancellationToken cancellationToken)
+        public Task Handle(UserNotifications notification, CancellationToken cancellationToken)
         {
             return Task.Run(() =>
             {

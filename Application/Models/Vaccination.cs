@@ -11,6 +11,6 @@ namespace VaccinationCard.Api.Application.Models
         public Vaccine Vaccine { get; set; }
         public int DoseId { get; set; }
         public Dose Dose { get; set; }
-        public DateTime CreatedAt { get; set; }        
+        public DateTime CreatedAt { get; set; }
     }
 }

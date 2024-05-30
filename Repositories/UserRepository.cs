@@ -16,23 +16,33 @@ namespace VaccinationCard.Api.Repositories
 
         public async Task<User> Add(User user)
         {
-            var newUser = new User
-            {
-                Name = user.Name
-            };
-
-            await _context.Users.AddAsync(newUser);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
-            return newUser;
+            return user;
         } 
 
         public async Task<bool> Delete(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);            
-            _context.Users.Remove(user);
-            
+            var user = await _context.Users
+            .Include(u => u.Vaccinations)
+            .FirstOrDefaultAsync(u => u.Id == id);
+
+            _context.Users.Remove(user);            
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<User> GetById(Guid id)
+        {
+            var user = await _context.Users
+            .Include(u => u.Vaccinations)
+            .ThenInclude(v => v.Vaccine)
+            .Include(u => u.Vaccinations)
+            .ThenInclude(v => v.Dose)
+            .FirstOrDefaultAsync(u => u.Id == id);
+
+            return user;
+        }
+
     }
 }

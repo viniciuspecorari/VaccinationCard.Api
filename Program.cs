@@ -14,6 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IVaccineRepository, VaccineRepository>();
+builder.Services.AddScoped<IDoseRepository, DoseRepository>();
+builder.Services.AddScoped<IVaccinationRepository, VaccinationRepository>();
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddDbContext<VcDbContext>(options =>
 {
@@ -33,3 +36,4 @@ app.UseHttpsRedirection();
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.MapControllers();
 app.Run();
+

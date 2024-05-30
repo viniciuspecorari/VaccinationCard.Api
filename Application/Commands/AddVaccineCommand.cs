@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using VaccinationCard.Api.Mediatr.Dtos;
+using VaccinationCard.Api.Application.Notifications;
 
 namespace VaccinationCard.Api.Application.Commands
 {
-    public class AddUserCommand : IRequest<UserNotifications>
+    public class AddVaccineCommand : IRequest<VaccineNotification>
     {
         public string Name { get; set; }
     }

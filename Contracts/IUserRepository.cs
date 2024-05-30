@@ -7,5 +7,6 @@ namespace VaccinationCard.Api.Contracts
     {
        public Task<User> Add(User user);
        public Task<bool> Delete(Guid id);
+       public Task<User> GetById(Guid id);
     }
 }

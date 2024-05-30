@@ -8,7 +8,7 @@ using VaccinationCard.Api.Mediatr.Models;
 
 namespace VaccinationCard.Api.Application.Handlers
 {
-    public class AddUserCommandHandler : IRequestHandler<AddUserCommand, AddUserNotifications>
+    public class AddUserCommandHandler : IRequestHandler<AddUserCommand, UserNotifications>
     {
         private readonly IMediator _mediator;
         private readonly IUserRepository _userRepository;
@@ -19,7 +19,7 @@ namespace VaccinationCard.Api.Application.Handlers
             _userRepository = userRepository;
         }
 
-        public async Task<AddUserNotifications> Handle(AddUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserNotifications> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
             var user = new User
             {
@@ -29,7 +29,7 @@ namespace VaccinationCard.Api.Application.Handlers
             try
             {
                 var userAdd = await _userRepository.Add(user);
-                await _mediator.Publish(new AddUserNotifications(userAdd.Id, request.Name));
+                await _mediator.Publish(new UserNotifications(userAdd.Id, request.Name));
                 return await Task.FromResult(userAdd);
             }
             catch(Exception ex)
