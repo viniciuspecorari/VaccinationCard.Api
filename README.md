@@ -34,7 +34,7 @@ Abaixo temos uma imagem que mostra todo funcionamento das camadas do projeto:
 * Swagger
 
 ## Setup
-Para que o projeto possa rodar na sua máguina, certifique-se de ter o SDK do **.NET 8** e o **SSMS (SQL Server)** instalado na sua máquina. Clone este repositório e siga os passos abaixo:
+Para que o projeto possa rodar na sua máquina, certifique-se de ter o SDK do **.NET 8** e o **SSMS (SQL Server)** instalado na sua máquina. Clone este repositório e siga os passos abaixo:
 
 ### Banco de Dados
 1. Criar um database SQL Server com o nome "VaccinationCard"
