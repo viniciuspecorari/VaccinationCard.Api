@@ -51,5 +51,3 @@ Para que o projeto possa rodar na sua máguina, certifique-se de ter o SDK do **
 **Agora é só testar!**
 
 ## Rotas
-## Autenticação
-## Decisões Arquiteturais
