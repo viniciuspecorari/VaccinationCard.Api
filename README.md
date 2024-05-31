@@ -51,3 +51,44 @@ Para que o projeto possa rodar na sua máquina, certifique-se de ter o SDK do **
 **Agora é só testar!**
 
 ## Rotas
+Abaixo uma descrição sobre todas as rotas presentes na aplicação.
+
+### Auth
+1. `[POST]/api/Auth`
+* Utilize essa rota para obter o bearer de autenticação da API.
+* Campos solicitados: credential. Utilize a credencial `client_credentials` 
+* Para poder executar as demais rotas, adicione o bearer no **Authorize** do Swagger. Exemplo: Bearer TOKEN
+
+### Dose
+1. `[GET]/api/Dose`
+* Utilize essa rota para listar as doses disponiveis no sistema
+
+### User
+1. `[POST]/api/User`
+* Utilize essa rota para cadastrar um usuário.
+* Campos solicitados: Nome
+
+2. `[Delete]/api/User`
+* Utilize essa rota para deletar um usuário e suas vacinações
+* Campos solicitados: UserId
+
+### Vaccination
+1. `[POST]/api/Vaccination`
+* Utilize essa rota para registrar uma vacinação de um usuário
+* Campos solicitados: UserId, VaccineId e DoseId
+
+2. `[GET]/api/Vaccination`
+* Utilize esta rota para recuperar todas as vacinações de um usuário
+* Campos solicitados: UserId
+
+3. `[DELETE]/api/Vaccination`
+* Utilize esta rota para deletar a vacinação de um usuário
+* Campos solicitados: VaccinationId
+
+### Vaccine
+1. `[GET]/api/Vaccine`
+* Utilize esta rota para listar todas as vacinas cadastradas
+
+3. `[POST]/api/Vaccination`
+* Utilize esta rota para cadastrar uma vacina
+* Campos solicitados: Nome
