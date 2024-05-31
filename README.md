@@ -25,7 +25,7 @@ Abaixo temos uma imagem que mostra todo funcionamento das camadas do projeto:
 * C#
 * .NET 8
 * SSMS (SQL Server)
-* Entity FrameWork
+* Entity FrameWork (ORM)
 * MediatR
 * CQRS Pattern
 * Repository Pattern
