@@ -57,7 +57,7 @@ Abaixo uma descrição sobre todas as rotas presentes na aplicação.
 1. `[POST]/api/Auth`
 * Utilize essa rota para obter o bearer de autenticação da API.
 * Campos solicitados: credential. Utilize a credencial `client_credentials` 
-* Para poder executar as demais rotas, adicione o bearer no **Authorize** do Swagger. Exemplo: Bearer TOKEN
+* Para poder executar as demais rotas, adicione o bearer no **Authorize** do Swagger ou no Authorization Header da aplicação que estiver usando para testar. Exemplo: Bearer TOKEN
 
 ### Dose
 1. `[GET]/api/Dose`
