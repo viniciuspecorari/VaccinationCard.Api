@@ -46,7 +46,7 @@ Para que o projeto possa rodar na sua máguina, certifique-se de ter o SDK do **
 1. Instalar todas as dependências do projeto (Se precisar)
 
 ### Migrations e Seeds
-1. Dentro do diretório raiz do projeto, abrir o cmd e rodar o comando "dotnet ef database update -v" para criar todas as estruturas do banco e também inicializar a tabela Doses
+1. Dentro do diretório raiz do projeto, abrir o cmd e rodar o comando `dotnet ef database update -v` para criar todas as estruturas do banco e também inicializar a tabela Doses
 
 **Agora é só testar!**
 
