@@ -68,7 +68,7 @@ Abaixo uma descrição sobre todas as rotas presentes na aplicação.
 * Utilize essa rota para cadastrar um usuário.
 * Campos solicitados: Nome
 
-2. `[Delete]/api/User`
+2. `[DELETE]/api/User`
 * Utilize essa rota para deletar um usuário e suas vacinações
 * Campos solicitados: UserId
 
