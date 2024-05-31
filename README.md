@@ -18,8 +18,20 @@ Na imagem abaixo temos a UML das entidades utilizadas no projeto:
 3. O registro das vacinações devem seguir a ordem das doses
 
 ## Estrutura do Projeto
-Abaixo, temos uma imagem que mostra todo funcionamento e acionamento dos serviços e das camadas:
-![Comunicação do interna](https://github.com/viniciuspecorari/Assets/blob/main/vaccination-card-uml.jpg)
+Abaixo temos uma imagem que mostra todo funcionamento das camadas do projeto:
+![Comunicação do interna](https://github.com/viniciuspecorari/Assets/blob/main/architeture-application.jpg)
+
+### Stacks Utilizadas
+* C#
+* .NET 8
+* SSMS (SQL Server)
+* Entity FrameWork
+* MediatR
+* CQRS Pattern
+* Repository Pattern
+* Injeção de Dependência
+* JWT Tokens
+* Swagger
 
 ## Setup
 Para que o projeto possa rodar na sua máguina, certifique-se de ter o SDK do **.NET 8** e o **SSMS (SQL Server)** instalado na sua máquina. Clone este repositório e siga os passos abaixo:
