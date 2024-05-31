@@ -66,6 +66,7 @@ namespace VaccinationCard.Api.Repositories
                         VaccineName = group.Key,
                         Doses = group.Select(v => new
                         {
+                            VaccinationId = v.Id,
                             DoseId = v.DoseId,
                             CreatedAt = v.CreatedAt
                         }).ToList()
