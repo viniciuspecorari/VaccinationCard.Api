@@ -51,7 +51,7 @@ Para que o projeto possa rodar na sua máquina, certifique-se de ter o SDK do **
 **Agora é só testar!**
 
 ## Rotas
-Abaixo uma descrição sobre todas as rotas presentes na aplicação. Confira também a collection da api no postman [clicando aqui](https://drive.google.com/file/d/1lyAz5Ji0F0-2CihCw_Udlrb2HFPq1zhl/view?usp=sharing)
+Abaixo uma descrição sobre todas as rotas presentes na aplicação e você também pode baixar o arquivo json da collection da api no postman [clicando aqui](https://drive.google.com/file/d/1lyAz5Ji0F0-2CihCw_Udlrb2HFPq1zhl/view?usp=sharing).
 
 
 ### Auth
