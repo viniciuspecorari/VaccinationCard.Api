@@ -90,6 +90,6 @@ Abaixo uma descrição sobre todas as rotas presentes na aplicação e você tam
 1. `[GET]/api/Vaccine`
 * Utilize esta rota para listar todas as vacinas cadastradas
 
-3. `[POST]/api/Vaccination`
+3. `[POST]/api/Vaccine`
 * Utilize esta rota para cadastrar uma vacina
 * Campos solicitados: Nome
